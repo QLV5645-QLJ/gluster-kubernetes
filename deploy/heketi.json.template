@@ -3,17 +3,17 @@
 	"port" : "8080",
 
 	"_use_auth": "Enable JWT authorization. Please enable for deployment",
-	"use_auth" : false,
+	"use_auth" : true,
 
 	"_jwt" : "Private keys for access",
 	"jwt" : {
 		"_admin" : "Admin has access to all APIs",
 		"admin" : {
-			"key" : ""
+			"key" : "magics"
 		},
 		"_user" : "User only has access to /volumes endpoint",
 		"user" : {
-			"key" : ""
+			"key" : "magics"
 		}
 	},
 
@@ -21,12 +21,13 @@
 	"glusterfs" : {
 
 		"_executor_comment": "Execute plugin. Possible choices: mock, kubernetes, ssh",
-		"executor" : "${HEKETI_EXECUTOR}",
+                "executor" : "raw",
 
 		"_db_comment": "Database file name",
 		"db" : "/var/lib/heketi/heketi.db",
 
 		"kubeexec" : {
+                        "host" :"https://kubernetes.host:8443",
 			"rebalance_on_expansion": true
 		},
 
@@ -36,7 +37,14 @@
 			"port" : "${SSH_PORT}",
 			"user" : "${SSH_USER}",
 			"sudo" : ${SSH_SUDO}
-		}
+		},
+               "rawexec": {
+                       "keyfile": "/root/.ssh/id_rsa",
+                       "sudo": true,
+                       "user": "root",
+                       "port": "22"
+               }
+
 	},
 
 	"backup_db_to_kube_secret": false

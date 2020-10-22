@@ -1,0 +1,56 @@
+{
+  "clusters": [
+    {
+      "nodes": [
+        {
+          "node": {
+            "hostnames": {
+              "manage": [
+                "kube-master-1"
+              ],
+              "storage": [
+                "192.168.100.161"
+              ]
+            },
+            "zone": 1
+          },
+          "devices": [
+            "/dev/vdc"
+          ]
+        },
+        {
+          "node": {
+            "hostnames": {
+              "manage": [
+                "kube-master-2"
+              ],
+              "storage": [
+                "192.168.100.162"
+              ]
+            },
+            "zone": 1
+          },
+          "devices": [
+            "/dev/vdc"
+          ]
+        },
+        {
+          "node": {
+            "hostnames": {
+              "manage": [
+                "kube-master-3"
+              ],
+              "storage": [
+                "192.168.100.163"
+              ]
+            },
+            "zone": 1
+          },
+          "devices": [
+            "/dev/vdc"
+          ]
+        }
+      ]
+    }
+  ]
+}
